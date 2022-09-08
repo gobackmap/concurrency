@@ -1,4 +1,4 @@
-module github.com/gobackmap/concurrency
+module github.com/goplateau/concurrency
 
 go 1.19
 
