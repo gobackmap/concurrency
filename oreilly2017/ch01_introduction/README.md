@@ -49,7 +49,7 @@ scaling. --> A new kind of thinking:
 
 - **Herb Sutter** (2015):
 >
-> - "The free lunchi is over: A fundamental turn toward concurrency in software."
+> - "The free lunch is over: A fundamental turn toward concurrency in software."
 > - “We desperately need a higher-level programming model for concurrency than languages offer today.”
 >
 
