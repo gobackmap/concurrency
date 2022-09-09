@@ -1,4 +1,4 @@
-package main
+package intro
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"github.com/fatih/color"
 )
 
-func main() {
+func Race() {
 	const N int = 50
 	var data int
 	fmt.Println("==============================================")
