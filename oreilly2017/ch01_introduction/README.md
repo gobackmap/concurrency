@@ -57,19 +57,21 @@ scaling. --> A new kind of thinking:
 ## **1.2 Why Is Concurrency Hard?**
 
 
-## **1.3 Race Conditions**
+### **1.2.1 Race Conditions**
+
+A race condition occurs when two or more operations must execute in the correct order, but the program has not been written so that this order is guaranteed to be maintained.
+Most of the time, this shows up in what’s called a *data race*, where one concurrent operation attempts to read a variable while at some undetermined time another concurrent operation is attempting to write to the same variable.
+
+### **1.2.2 Atomicity**
 
 
-## **1.4 Atomicity**
+### **1.2.3 Memory Access Synchronization**
 
 
-## **1.5 Memory Access Synchronization**
+### **1.2.4 Deadlocks, Livelocks, and Starvation**
 
 
-## **1.6 Deadlocks, Livelocks, and Starvation**
+### **1.7 Determining Concurrency Safety**
 
 
-## **1.7 Determining Concurrency Safety**
-
-
-## **1.8 Simplicity in the Face of Complexity**
+### **1.8 Simplicity in the Face of Complexity**
