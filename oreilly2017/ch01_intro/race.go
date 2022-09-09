@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/fatih/color"
 )
 
 func main() {
@@ -18,15 +19,18 @@ func main() {
 	fmt.Println(" Just run the program again and again!")
 	fmt.Println("==============================================")
 
+	fgGreen := color.New(color.FgGreen)
+	fgBlue := color.New(color.FgBlue, color.Underline)
 	go func() {
-		fmt.Println("goroutine >>> the value of data is going to increase...")
+		fgGreen.Println("\ngoroutine >>> the value of data is going to increase...")
 		data++
-		fmt.Println("goroutine >>> the value of data increased...")
+		fgGreen.Println("goroutine >>> the value of data increased...")
 	}()
 	for i := 0; i < N; i++ {
+		fmt.Printf(" iteration %d... ", i)
 		if data == 0 {
-			fmt.Printf("it=%d, data=%v\n", i, data)
+			fgBlue.Printf("| it=%d, data=%v |", i, data)
 		}
 	}
-	time.Sleep(time.Second)
+	fmt.Println()
 }
