@@ -11,7 +11,11 @@ func main() {
 	fmt.Println("==============================================")
 	fmt.Println(" Race Condition Exmample")
 	fmt.Printf(" Number of Iteration=%d, shared data=%d\n", N, data)
-	fmt.Println(" Just run the program again and agian!")
+	fmt.Println(" Three possible outcomes:")
+	fmt.Println("   -Nothing to print")
+	fmt.Println("   -data=0")
+	fmt.Println("   -data=1")
+	fmt.Println(" Just run the program again and again!")
 	fmt.Println("==============================================")
 
 	go func() {
