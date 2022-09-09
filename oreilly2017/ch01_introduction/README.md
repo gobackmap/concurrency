@@ -12,7 +12,7 @@ those words.
 - Why concurrency became an important topic in computer science?
 - Why concurrency is difficult and warrants careful study?
 
-## 1.1 Moore’s Law, Web Scale, and the Mess We’re In
+## **1.1 Moore’s Law, Web Scale, and the Mess We’re In**
 
 - Gordon **Moore's Law** (1965-1975): the number of components on an integrated circuit would double every two years. This prediction more or less held true until just recently—around 2012 --> born of **multicore processors**: a clever way to solve the bounding problems of Moore’s law | bounded by the limits of the Amdahl's Law. 
 
@@ -54,22 +54,22 @@ scaling. --> A new kind of thinking:
 >
 
 
-- ## 1.2 Why Is Concurrency Hard?
+## **1.2 Why Is Concurrency Hard?**
 
 
-## 1.3 Race Conditions
+## **1.3 Race Conditions**
 
 
-## 1.4 Atomicity
+## **1.4 Atomicity**
 
 
-## 1.5 Memory Access Synchronization
+## **1.5 Memory Access Synchronization**
 
 
-## 1.6 Deadlocks, Livelocks, and Starvation
+## **1.6 Deadlocks, Livelocks, and Starvation**
 
 
-## 1.7 Determining Concurrency Safety
+## **1.7 Determining Concurrency Safety**
 
 
-## 1.8 Simplicity in the Face of Complexity
+## **1.8 Simplicity in the Face of Complexity**
