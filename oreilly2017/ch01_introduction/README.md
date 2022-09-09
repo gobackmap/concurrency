@@ -55,7 +55,7 @@ scaling. --> A new kind of thinking:
 
 
 ## **1.2 Why Is Concurrency Hard?**
-
+Following are some of the most common issues that make working with concurrent code both frustrating and interesting.
 
 ### **1.2.1 Race Conditions**
 
