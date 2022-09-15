@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	intro "github.com/goplateau/concurrency/oreilly2017/ch01_intro"
+	intro "github.com/gobeen/concurrency/oreilly2017/ch01_intro"
 )
 
 type Chapter struct {

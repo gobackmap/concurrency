@@ -1,4 +1,4 @@
-module github.com/goplateau/concurrency
+module github.com/gobeen/concurrency
 
 go 1.19
 
