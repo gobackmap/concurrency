@@ -64,6 +64,18 @@ Most of the time, this shows up in what’s called a *data race*, where one conc
 
 ### **1.2.2 Atomicity**
 
+When something is considered atomic, or to have the property of atomicity, this means that within the *context* that it is operating, it is *indivisible*, or *uninterruptible*.
+
+- Something may be atomic in one **context**, but not another. In other words, the atomicity of an operation can change depending on the currently defined **scope**. This fact can work both for and against you!
+- The terms **indivisible** and **uninterruptible** mean that within the context you’ve defined, something that is atomic will happen in its entirety without anything happening in that context simultaneously. Let's look at the example of i++. It may look atomic, but a brief analysis reveals several operations: 
+  - Retrieve the value of i.
+  - Increment the value of i.
+  - Store the value of i.
+While each of these operations alone is atomic, the combination of the three may not be, depending on your context: If your context is a program with no concurrent processes, then this code is atomic within that context. If your context is a goroutine that doesn’t expose i to other goroutines, then this code is atomic.
+- Atomicity is important because if something is atomic, implicitly it is safe within concurrent contexts. This allows us to
+  - compose logically correct programs,
+  - can even serve as a way to optimize concurrent programs.
+- Most statements are not atomic, let alone functions, methods, and programs. If atomicity is the key to composing logically correct programs, and most statements aren’t atomic, how do we reconcile these two statements? In short we can force atomicity by employing various techniques. The art then becomes determining which areas of your code need to be atomic, and at what level of granularity.
 
 ### **1.2.3 Memory Access Synchronization**
 
