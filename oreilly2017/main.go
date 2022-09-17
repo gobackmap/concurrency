@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	intro "github.com/gobeen/concurrency/oreilly2017/ch01_intro"
@@ -35,16 +34,16 @@ var args []string
 func main() {
 	args = os.Args
 	if len(args) > 1 {
-		switch args[1] {
-		case Chapters[0].title:
-			checkAndRunTopic(Chapters[0])
-		case Chapters[1].title:
-			log.Fatal("not implemented")
-		default:
-			chapterHelp()
+		for _, chapter := range Chapters {
+			if chapter.title == args[1] {
+				checkAndRunTopic(chapter)
+				break
+			}
 		}
+		fmt.Println("no such chapter!")
+		helpChapter()
 	} else {
-		chapterHelp()
+		helpChapter()
 	}
 }
 
@@ -53,14 +52,17 @@ func checkAndRunTopic(chapter Chapter) {
 		for _, topic := range chapter.topics {
 			if topic.title == args[2] {
 				topic.callback()
+				break
 			}
 		}
+		fmt.Printf("no such topic in %q chapter.\n", chapter.title)
+		helpTopic(chapter)
 	} else {
-		topicHelp(chapter)
+		helpTopic(chapter)
 	}
 }
 
-func chapterHelp() {
+func helpChapter() {
 	fmt.Printf("Specify a chapter title using\n 	go run . <")
 	for i, ch := range Chapters {
 		switch i {
@@ -71,9 +73,10 @@ func chapterHelp() {
 		}
 	}
 	fmt.Println(">")
+	os.Exit(0)
 }
 
-func topicHelp(chapter Chapter) {
+func helpTopic(chapter Chapter) {
 	fmt.Printf("Specify a topic using\n 	go run . %s <", chapter.title)
 	for i, topic := range chapter.topics {
 		switch i {
@@ -84,4 +87,5 @@ func topicHelp(chapter Chapter) {
 		}
 	}
 	fmt.Println(">")
+	os.Exit(0)
 }
