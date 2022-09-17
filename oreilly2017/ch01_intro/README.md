@@ -103,8 +103,12 @@ Livelocks are more difficult to spot than deadlocks simply because it can appear
 Livelocks are a subset of a larger set of problems called **starvation**.
 
 #### **1.2.4.3 Starvations**
+When we discussed livelocks, the resource each goroutine was starved of was a shared lock. Livelocks warrant discussion separate from starvation because in a livelock, all the concurrent processes are starved equally, and no work is accomplished.
+More broadly, starvation usually implies that there are one or more greedy concurrent process that are unfairly preventing one or more concurrent processes from accomplishing work as efficiently as possible, or maybe at all.
+Starvation is any situation where a concurrent process cannot get all the resources it needs to perform work.
+Starvation can cause your program to behave inefficiently or incorrectly. The prior example demonstrates an inefficiency, but if you have a concurrent process that is so greedy as to completely prevent another concurrent process from accomplishing work, you have a larger problem on your hands.
+We should also consider the case where the starvation is coming from outside the Go process. Keep in mind that starvation can also apply to CPU, memory, file handles, database connections: any resource that must be shared is a candidate for starvation.
+### **1.2.5 Determining Concurrency Safety**
 
-### **1.7 Determining Concurrency Safety**
 
-
-### **1.8 Simplicity in the Face of Complexity**
+## **1.3 Simplicity in the Face of Complexity**
