@@ -37,7 +37,7 @@ func main() {
 	if len(args) > 1 {
 		switch args[1] {
 		case Chapters[0].title:
-			checkTopic(Chapters[0])
+			checkAndRunTopic(Chapters[0])
 		case Chapters[1].title:
 			log.Fatal("not implemented")
 		default:
@@ -48,7 +48,7 @@ func main() {
 	}
 }
 
-func checkTopic(chapter Chapter) {
+func checkAndRunTopic(chapter Chapter) {
 	if len(args) > 2 {
 		for _, topic := range chapter.topics {
 			if topic.title == args[2] {
