@@ -65,7 +65,7 @@ Most of the time, this shows up in what’s called a *data race*, where one conc
 Run the command below to check the results of the [race condition example](race.go)
 
 ```bash
-  go run . intro race
+go run . intro race
 
 ```
 
