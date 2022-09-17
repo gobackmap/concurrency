@@ -100,6 +100,7 @@ Livelocks are programs that are actively performing concurrent operations, but t
 
 Livelocks are more difficult to spot than deadlocks simply because it can appear as if the program is doing work. If a livelocked program were running on your machine and you took a look at the CPU utilization to determine if it was doing anything, you might think it was. Depending on the livelock, it might even be emitting other signals that would make you think it was doing work. And yet all the while, your program would be playing an eternal game of hallway-shuffle.
 
+Livelocks are a subset of a larger set of problems called **starvation**.
 
 #### **1.2.4.3 Starvations**
 
