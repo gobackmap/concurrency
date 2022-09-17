@@ -31,7 +31,7 @@ func Race() {
 		fgGreen.Println("goroutine >>> the value of data increased...")
 	}()
 	for i := 0; i < numReadingTry; i++ {
-		fmt.Printf(" iteration %d... ", i)
+		fmt.Printf("it%d: ", i)
 		if sharedData == 0 {
 			fgBlue.Printf("| it=%d, data=%v |", i, sharedData)
 		}
