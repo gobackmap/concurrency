@@ -16,7 +16,7 @@ type Chapter struct {
 type Topic struct {
 	title       string
 	description string
-	callback    func()
+	call        func()
 }
 
 var Chapters = []Chapter{
@@ -25,6 +25,7 @@ var Chapters = []Chapter{
 		{"sync", "memory access synchronization", intro.MemoryAccessSynchronization},
 		{"deadlock", "deadlock", intro.Deadlock},
 		{"livelock", "livelock", intro.Livelock},
+		{"starvation", "starvation", intro.Starvation},
 	}},
 	{2, "csp", []Topic{}},
 }
@@ -34,14 +35,18 @@ var args []string
 func main() {
 	args = os.Args
 	if len(args) > 1 {
+		var found bool
 		for _, chapter := range Chapters {
 			if chapter.title == args[1] {
+				found = true
 				checkAndRunTopic(chapter)
 				break
 			}
 		}
-		fmt.Println("no such chapter!")
-		helpChapter()
+		if !found {
+			fmt.Println("no such chapter!")
+			helpChapter()
+		}
 	} else {
 		helpChapter()
 	}
@@ -49,14 +54,18 @@ func main() {
 
 func checkAndRunTopic(chapter Chapter) {
 	if len(args) > 2 {
+		var found bool
 		for _, topic := range chapter.topics {
 			if topic.title == args[2] {
-				topic.callback()
+				found = true
+				topic.call()
 				break
 			}
 		}
-		fmt.Printf("no such topic in %q chapter.\n", chapter.title)
-		helpTopic(chapter)
+		if !found {
+			fmt.Printf("no such topic in %q chapter.\n", chapter.title)
+			helpTopic(chapter)
+		}
 	} else {
 		helpTopic(chapter)
 	}
