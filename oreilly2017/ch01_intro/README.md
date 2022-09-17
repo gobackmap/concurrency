@@ -62,6 +62,13 @@ Following are some of the most common issues that make working with concurrent c
 A race condition occurs when two or more operations must execute in the correct order, but the program has not been written so that this order is guaranteed to be maintained.
 Most of the time, this shows up in what’s called a *data race*, where one concurrent operation attempts to read a variable while at some undetermined time another concurrent operation is attempting to write to the same variable.
 
+Run the command below to check the results of the [race condition example](race.go)
+
+```bash
+  go run . intro race
+
+```
+
 ### **1.2.2 Atomicity**
 
 When something is considered atomic, or to have the property of atomicity, this means that within the *context* that it is operating, it is *indivisible*, or *uninterruptible*.
