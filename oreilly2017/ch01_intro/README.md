@@ -83,6 +83,23 @@ While each of these operations alone is atomic, the combination of the three may
 
 ### **1.2.4 Deadlocks, Livelocks, and Starvation**
 
+Even if you successfully handle program correctness classes of issues, there is another class of issues to contend with: **deadlocks**, **livelocks**, and **starvation**. These issues all concern ensuring your program has something useful to do at all times. If not handled properly, your program could enter a state in which it will stop functioning altogether.
+#### **1.2.4.1 Deadlocls**
+It turns out there are a few conditions that must be present for deadlocks to arise, and in 1971, Edgar Coffman enumerated these conditions in a paper. The conditions are now known as the **Coffman Conditions** and are the basis for techniques that help detect, prevent, and correct deadlocks. The Coffman Conditions are as follows:
+
+- **Mutual Exclusion**: A concurrent process holds exclusive rights to a resource at any one time.
+- **Wait For Condition**: A concurrent process must simultaneously hold a resource and be waiting for an additional resource.
+- **No Preemption**: A resource held by a concurrent process can only be released by that process, so it fulfills this condition.
+- **Circular Wait**: A concurrent process (P1) must be waiting on a chain of other concurrent processes (P2), which are in turn waiting on it (P1), so it fulfills this final condition too.
+
+
+These laws allow us to prevent deadlocks too. If we ensure that at least one of these conditions is not true, we can prevent deadlocks from occurring. Unfortunately, in practice these conditions can be hard to reason about, and therefore difficult to prevent.
+#### **1.2.4.2 Livelocls**
+
+Livelocks are programs that are actively performing concurrent operations, but these operations do nothing to move the state of the program forward.
+
+
+#### **1.2.4.3 Starvations**
 
 ### **1.7 Determining Concurrency Safety**
 
