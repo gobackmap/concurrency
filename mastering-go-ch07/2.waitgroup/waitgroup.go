@@ -30,11 +30,12 @@ func main() {
 	for i := 0; i < count; i++ {
 		wg.Add(1)
 		go func(x int) {
+			defer wg.Done()
 			fmt.Printf("%d ", x)
-			wg.Done()
 		}(i)
 	}
-	fmt.Printf("Waiting for %d number of goroutines to be done...\n", runtime.NumGoroutine()-1)
+	fmt.Printf("Waiting for %d number of goroutines to be done...\nNumber of goroutines: %d\n", count, runtime.NumGoroutine())
 	wg.Wait()
+	fmt.Printf("\nDone...only %d goroutine remained: main goroutine!\n", runtime.NumGoroutine())
 	fmt.Println("Exit...")
 }
